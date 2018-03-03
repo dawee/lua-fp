@@ -5,7 +5,7 @@ local function createReducePredicate(predicate, initial)
   local state = initial
 
   return function (value)
-    state = predicate(value, state)
+    state = predicate(state, value)
 
     return state
   end
