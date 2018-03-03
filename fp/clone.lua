@@ -14,7 +14,7 @@ end
 local function clone(base)
   local clonePredicate = createClonePredicate()
 
-  return iterate(clonePredicate, base)
+  return iterate(clonePredicate, base, {})
 end
 
 return curry(clone, 1)
