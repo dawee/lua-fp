@@ -1,0 +1,14 @@
+return {
+  _all = {
+    coverage = true
+  },
+  default = {
+    verbose = true
+  },
+  tests = {
+    ROOT = {"./test"},
+    lpath = "./fp/?.lua;./test/?.lua",
+    pattern = ".lua"
+  }
+}
+
