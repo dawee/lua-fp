@@ -2,7 +2,7 @@
 .PHONY: test
 
 ifeq ($(env), travis)
-root=/home/travis/build/chrisdugne/lua-fp
+root=/home/travis/build/dawee/lua-fp
 else
 root=.
 LUA_VERSION=5.3
