@@ -1,17 +1,15 @@
-local function loop(predicate, static, next, shouldBreak, state, lastKey)
-  local key, value = next(static, lastKey)
+local function loop(predicate, static, next, shouldBreak)
+  local key, value, state
 
-  if key == nil then
-    return state
-  end
+  repeat
+    key, value = next(static, key)
 
-  local nextState = predicate(value, key)
+    if not (key == nil) then
+      state = predicate(value, key)
+    end
+  until (key == nil) or (shouldBreak and shouldBreak(state))
 
-  if shouldBreak and shouldBreak(nextState) then
-    return nextState
-  end
-
-  return loop(predicate, static, next, shouldBreak, nextState, key)
+  return state
 end
 
 return loop
