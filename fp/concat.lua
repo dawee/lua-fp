@@ -1,6 +1,8 @@
 local curry = require('fp.curry')
 local iterate = require('fp.iterate')
 
+local unpack = table.unpack or unpack
+
 local function createConcatPredicate(base)
   local concatenated = {unpack(base)}
 
