@@ -9,6 +9,7 @@ endif
 
 # http://leafo.net/guides/customizing-the-luarocks-tree.html
 export LUA_PATH := ${root}/?.lua;$(LUA_PATH)
+export LUA_PATH := ${root}/?/init.lua;$(LUA_PATH)
 export LUA_PATH := ${root}/.rocks/share/lua/${LUA_VERSION}/?.lua;$(LUA_PATH)
 export LUA_PATH := ${root}/.rocks/share/lua/${LUA_VERSION}/?/init.lua;$(LUA_PATH)
 export LUA_CPATH := ${root}/.rocks/lib/lua/${LUA_VERSION}/?.so$(LUA_CPATH)
@@ -34,8 +35,8 @@ test/spec/require.lua: ${sources}
 clean:
 	@rm -rf ./test/spec/require.lua
 
-distclean:
+distclean: clean
 	@rm -rf .rocks
 	@echo removed .rocks
 
-.PHONY: test
+.PHONY: clean test distclean

@@ -1,5 +1,7 @@
 local iterate = require('fp.iterate')
 
+local unpack = table.unpack or unpack
+
 local function createNextArgsPredicate(prefixedArgs)
   local args = {unpack(prefixedArgs)}
 

@@ -1,4 +1,5 @@
 local path = require('pl.path')
+local file = require('pl.file')
 local lfs = require('lfs')
 
 local generatedTestPath = path.join(path.currentdir(), 'test', 'spec', 'require.lua')
@@ -13,12 +14,12 @@ local function walk(dir, name, mod)
 
   if path.isdir(fullPath) then
     for sub in lfs.dir(fullPath) do
-      local basename, ext = path.splitext(sub)
+      local basename, _ = path.splitext(sub)
 
       walk(fullPath, sub, mod .. '.' .. basename)
     end
   else
-    local basename, ext = path.splitext(name)
+    local _, ext = path.splitext(name)
 
     if ext == '.lua' then
       data = data .. '\n'
@@ -33,8 +34,4 @@ walk(path.currentdir(), 'fp', 'fp')
 
 data = data .. 'end)\n'
 
-local file = io.open(generatedTestPath, 'w')
-
-io.output(file)
-io.write(data)
-io.close(file)
+file.write(generatedTestPath, data)

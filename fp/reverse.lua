@@ -5,7 +5,7 @@ local function createReversePredicate(predicate)
   local reversed = {}
 
   return function (value)
-    reversed = table.insert(reversed, 1, value)
+    table.insert(reversed, 1, value)
 
     return reversed
   end

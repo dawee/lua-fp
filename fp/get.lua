@@ -7,10 +7,6 @@ local function createGetPredicate(base)
   local pointer = base
 
   return function (key)
-    if not isTable(pointer) then
-      return nil
-    end
-
     pointer = pointer[key]
 
     return pointer
