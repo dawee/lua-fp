@@ -1,10 +1,10 @@
 sources := $(shell find fp/ -type f -name '*.lua')
 
 ifeq ($(env), travis)
-root=/home/travis/build/dawee/lua-fp
+	root=/home/travis/build/dawee/lua-fp
 else
-root=.
-LUA_VERSION=5.3
+	root=.
+	LUA_VERSION=5.3
 endif
 
 # http://leafo.net/guides/customizing-the-luarocks-tree.html
