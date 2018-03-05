@@ -34,8 +34,8 @@ test/spec/require.lua: ${sources}
 clean:
 	@rm -rf ./test/spec/require.lua
 
-distclean:
+distclean: clean
 	@rm -rf .rocks
 	@echo removed .rocks
 
-.PHONY: test
+.PHONY: clean test distclean
