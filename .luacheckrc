@@ -5,6 +5,6 @@ stds.fp = {
 }
 
 std = 'min+fp'
-ignore = {'212'}
+ignore = {'212', './test/script/pretest.lua'}
 files['test'] = {std = '+busted'}
 exclude_files = {'.rocks/*', 'lua_install_travis_folder'}
